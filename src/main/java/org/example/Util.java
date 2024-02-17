@@ -28,7 +28,7 @@ public class Util {
       return false;
     }
 
-    Thread.sleep(50);
+    Thread.sleep(1);
 
     //System.out.println(STR."\{value} \{Thread.currentThread()}");
     for (int i = 2; i < (int) Math.sqrt(value); i++ ) {

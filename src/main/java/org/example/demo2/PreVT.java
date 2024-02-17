@@ -15,10 +15,10 @@ import java.util.stream.IntStream;
  */
 public class PreVT
 {
-    final static int MAX_NUMBERS_TO_CHECK = 10_000;
+    final static int MAX_NUMBERS_TO_CHECK = 1_000_000;
 
     public static void main( String[] args ) {
-      // stream();
+       //stream();
        parrallelStream();
     }
 

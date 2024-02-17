@@ -27,12 +27,9 @@ public class VirtualThreads
 
     public static void main( String[] args )
     {
-        Thread.startVirtualThread(() -> {
-            System.out.println("Hello, World from a Virtual Thread!");
-        });
 
         // Generate a list of random numbers for demonstration
-        var numbers = Arrays.stream(IntStream.range(0, 10_000)
+        var numbers = Arrays.stream(IntStream.range(0, 1_000_000)
             .toArray())
             .boxed()
             .toList();
@@ -75,7 +72,5 @@ public class VirtualThreads
         String timeTaken = STR."Time taken \{value} ms";
         System.out.println(timeTaken);
     }
-
-
 
 }
