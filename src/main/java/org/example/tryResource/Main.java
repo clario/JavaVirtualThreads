@@ -7,7 +7,13 @@ import java.util.Scanner;
 public class Main {
 
   // Before Java 7
-  public static void main(String[] args) {
+  public static void main(String[] args) throws FileNotFoundException {
+    beforeJava7();
+    //java7();
+    //java9();
+  }
+
+  static void beforeJava7() {
     Scanner scanner = null;
     try {
       scanner = new Scanner(new File("src/test.txt"));
@@ -23,29 +29,25 @@ public class Main {
     }
   }
 
-  public class Java7 {
-    public static void main(String[] args) {
-      try (Scanner scanner = new Scanner(new File("src/test.txt"))){
-        while (scanner.hasNext()) {
-          System.out.println(scanner.nextLine());
-        }
-      } catch (FileNotFoundException e) {
-        throw new RuntimeException(e);
+  static void java7 () {
+    try (Scanner scanner = new Scanner(new File("src/test.txt"))){
+      while (scanner.hasNext()) {
+        System.out.println(scanner.nextLine());
       }
+    } catch (FileNotFoundException e) {
+      throw new RuntimeException(e);
     }
 
   }
 
-  public class Java9 {
-    public static void main(String[] args) throws FileNotFoundException {
-      final Scanner scanner = new Scanner(new File("src/test.txt"));
-      try (scanner){
-        while (scanner.hasNext()) {
-          System.out.println(scanner.nextLine());
-        }
+  static void java9 () throws FileNotFoundException {
+    final Scanner scanner = new Scanner(new File("src/test.txt"));
+    try (scanner){
+      while (scanner.hasNext()) {
+        System.out.println(scanner.nextLine());
       }
     }
-
   }
+
 }
 
