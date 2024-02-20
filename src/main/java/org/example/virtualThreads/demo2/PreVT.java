@@ -1,4 +1,4 @@
-package org.example.demo2;
+package org.example.virtualThreads.demo2;
 
 import static org.example.Util.isPrime;
 

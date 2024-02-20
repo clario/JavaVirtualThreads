@@ -1,4 +1,4 @@
-package org.example.demo1;
+package org.example.virtualThreads.demo1;
 
 import java.lang.Thread.UncaughtExceptionHandler;
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package org.example.demo1;
+package org.example.virtualThreads.demo1;
 
 public class ThreadDemo {
 
