@@ -1,6 +1,8 @@
 package org.example.dateTime;
 import java.time.Duration;
 import java.time.OffsetTime;
+import java.time.Period;
+import java.time.ZoneId;
 import java.util.Calendar;
 import org.threeten.extra.DayOfYear;
 import org.threeten.extra.Days;
@@ -28,7 +30,7 @@ public class Main {
   public static void main(String[] args) {
     //beforeJava5();
     //java5();
-    //java8();
+    java8();
    //threeTenExtra();
     //java11_12();
   }
@@ -94,9 +96,15 @@ public class Main {
       // ZonedDateTime,
       var zonedDateTime = ZonedDateTime.now();
       System.out.printf("\nZoneDateTime: %s \n",zonedDateTime);
+
+
       // ZoneDateTime 6 month from now
       var zonedDateTime6Months = zonedDateTime.plusMonths(6);
       System.out.printf("ZoneDateTime 6 months from now: %s \n\n",zonedDateTime6Months);
+
+      // Set TimeZone to New York time Zone Date Time
+      ZonedDateTime newYorkTime = ZonedDateTime.now(ZoneId.of("America/New_York"));
+      System.out.printf("New York Time: %s \n \n",newYorkTime);
 
       // LocalDate,
       var localDate = LocalDate.now();
@@ -116,12 +124,16 @@ public class Main {
 
 
 
-      // Period,
-      var period = localDate.until(localDate.plusDays(5));
+      // Period, difference between two dates
+      Period period = localDate.until(localDate.plusDays(5));
       System.out.printf("Period %s \n", period);
-      // Duration,
-     // Duration duration = localTime.until(localTime.plusHours(5), ChronoUnit.HOURS);
-      //System.out.printf("Duration %s \n",duration);
+
+      // Duration, difference between two times
+      var zoneDateTimeNow = ZonedDateTime.now();
+      var zonedateTime33Minutes = zoneDateTimeNow.plusMinutes(33);
+      Duration duration = Duration.between(zoneDateTimeNow, zonedateTime33Minutes);
+      System.out.printf("Duration %s \n",duration.toSeconds() + " seconds");
+
       // DateTimeFormatter
       //  ISO 8601 supports date and time, and time zone
       DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
@@ -183,7 +195,6 @@ public class Main {
     }
 
     public static void java13() {
-
        LocalTime localTime = LocalTime.now();
        ZonedDateTime zonedDateTime = ZonedDateTime.now();
 

@@ -16,7 +16,7 @@ public class ThreadDemo {
       createThread();
     }
     long stop = System.currentTimeMillis();
-    System.out.printf("Time: %d ms", stop-start);
+    System.out.printf("Time: %d s", (stop - start) / 1000);
   }
 
 
